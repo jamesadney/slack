@@ -8,15 +8,16 @@ import (
 
 // UserPrefs needs to be implemented
 type UserPrefs struct {
-	HighlightWords string `json:"highlight_words"`
+	HighlightWords   string `json:"highlight_words"`
+	PushDMAlert      bool   `json:"push_dm_alert"`
+	PushMentionAlert bool   `json:"push_mention_alert"`
+	PushEverything   bool   `json:"push_everything"`
+	MuteSounds       bool   `json:"mute_sounds"`
 	// "highlight_words":"",
 	// "user_colors":"",
 	// "color_names_in_list":true,
 	// "growls_enabled":true,
 	// "tz":"Europe\/London",
-	// "push_dm_alert":true,
-	// "push_mention_alert":true,
-	// "push_everything":true,
 	// "push_idle_wait":2,
 	// "push_sound":"b2.mp3",
 	// "push_loud_channels":"",
@@ -59,7 +60,6 @@ type UserPrefs struct {
 	// "seen_member_invite_reminder":false,
 	// "seen_flexpane_tip_card":true,
 	// "seen_search_input_tip_card":true,
-	// "mute_sounds":false,
 	// "arrow_history":false,
 	// "tab_ui_return_selects":true,
 	// "obey_inline_img_limit":true,
