@@ -2,11 +2,13 @@ package slack
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
 
 // UserPrefs needs to be implemented
 type UserPrefs struct {
+	HighlightWords string `json:"highlight_words"`
 	// "highlight_words":"",
 	// "user_colors":"",
 	// "color_names_in_list":true,
@@ -111,6 +113,11 @@ type UserDetails struct {
 	Created        JSONTime  `json:"created"`
 	ManualPresence string    `json:"manual_presence"`
 	Prefs          UserPrefs `json:"prefs"`
+}
+
+// HighlightWords returns a slice of the user's highlight words.
+func (u *UserDetails) HighlightWords() []string {
+	return strings.Split(u.Prefs.HighlightWords, ",")
 }
 
 // JSONTime exists so that we can have a String method converting the date
